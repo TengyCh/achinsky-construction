@@ -344,7 +344,9 @@ em { font-style: normal; color: var(--red); }
 
 .form input, .form select, .form textarea {
   width: 100%; margin-top: .4rem; padding: .72rem .9rem;
-  font-family: var(--sans); font-size: .95rem; font-weight: 400; color: var(--text);
+  /* Never below 16px: iOS Safari auto-zooms the whole page when you focus a
+     field with smaller text, which yanks the layout around mid-form. */
+  font-family: var(--sans); font-size: max(16px, .95rem); font-weight: 400; color: var(--text);
   background: var(--bg); border: 1.5px solid var(--border); border-radius: 10px;
   transition: border-color .2s, box-shadow .2s;
 }
@@ -422,6 +424,14 @@ body.no-scroll { overflow: hidden; }
 }
 
 @media (max-width: 860px) {
+  /* Touch targets: 44px is the Apple/Google minimum. Phone and email links are
+     the primary action on this site, so they must be comfortably tappable. */
+  .branch a { display: inline-flex; align-items: center; min-height: 44px; }
+  .branch li { gap: .7rem; }
+  .filter { padding: .72rem 1.4rem; }
+  .footer-nav { gap: .4rem 1.6rem; }
+  .footer-nav a { display: inline-flex; align-items: center; min-height: 44px; }
+
   .menu-btn { display: flex; }
   .nav {
     position: fixed; inset: var(--header-h) 0 auto 0;
