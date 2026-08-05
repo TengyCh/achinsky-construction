@@ -197,7 +197,12 @@ em { font-style: normal; color: var(--red); }
   opacity: .14; pointer-events: none;
 }
 :root[data-theme="dark"] .hero-bg::before { filter: invert(1); opacity: .13; }
-.hero-inner { max-width: 860px; }
+/* Stay a full-width .wrap so the hero's left edge lines up with the header logo,
+   cards and footer. Capping .hero-inner itself would centre it inside the wrap and
+   push the headline ~160px right of everything else on wide screens. Line length is
+   controlled on the text instead. */
+.hero-inner { max-width: none; }
+.hero h1 { max-width: 860px; }
 .hero h1 { margin-bottom: 1.1rem; }
 .hero-sub { font-size: clamp(1.05rem, 1.9vw, 1.28rem); color: var(--muted); max-width: 60ch; margin-bottom: 2.2rem; }
 .hero-actions { display: flex; flex-wrap: wrap; gap: .9rem; }
