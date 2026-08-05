@@ -428,7 +428,8 @@ body.no-scroll { overflow: hidden; }
      the primary action on this site, so they must be comfortably tappable. */
   .branch a { display: inline-flex; align-items: center; min-height: 44px; }
   .branch li { gap: .7rem; }
-  .filter { padding: .72rem 1.4rem; }
+  .filter { padding: .78rem 1.4rem; }
+  .icon-btn { width: 44px; height: 44px; }
   .footer-nav { gap: .4rem 1.6rem; }
   .footer-nav a { display: inline-flex; align-items: center; min-height: 44px; }
 

@@ -146,12 +146,20 @@ then point your registrar's DNS at GitHub. Keep `CNAME` in the repo once created
 
 ## Important: bump `?v=` after editing CSS or JS
 
-GitHub Pages serves `.css` and `.js` with `cache-control: max-age=600`, so a returning
-visitor keeps the old file for up to 10 minutes after you push. That makes a fix look
-like it "didn't work".
+GitHub Pages serves **everything** — `index.html` included — with
+`cache-control: max-age=600`. A returning visitor can keep old files for up to 10
+minutes after you push, which makes a fix look like it "didn't work".
 
-`index.html` itself is never cached that way, so the fix is to change the query string
-it points at. In `index.html`, bump the number in all three places:
+Bumping `?v=` does **not** remove that 10-minute wait (nothing can — GitHub Pages
+does not let you set cache headers). What it does prevent is the nastier failure:
+new HTML paired with stale CSS/JS. Without it, a visitor can end up running a fresh
+`index.html` against a cached `main.js` for another 10 minutes, and mismatched pairs
+break in confusing ways. With it, HTML and its assets always arrive together.
+
+To see a change immediately yourself, hard-reload with **Ctrl + Shift + R**, or open
+the site in a private window.
+
+In `index.html`, bump the number in all three places:
 
 ```html
 <link rel="stylesheet" href="css/styles.css?v=2">
