@@ -22,7 +22,7 @@
 
 window.ACHINSKY_CONFIG = {
   EMAILJS_PUBLIC_KEY: "UdnffwjaYVDt_g22E",
-  EMAILJS_SERVICE_ID: "service_fk4un9f",
+  EMAILJS_SERVICE_ID: "service_navlc8u",
   EMAILJS_TEMPLATE_ID: "template_er0jnzi",
 
   // Shown to visitors if EmailJS isn't set up yet, so no lead is ever lost.
